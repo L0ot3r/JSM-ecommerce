@@ -269,13 +269,20 @@ span.text-red {
 }
 .cart-wrapper {
 	width: 100vw;
-	background: rgba(0, 0, 0, 0.5);
+	/* background: rgba(0, 0, 0, 0.5); */
 	position: fixed;
 	right: 0;
 	top: 0;
 	z-index: 100;
 	/* will-change: transform; */
 	transition: all 1s ease-in-out;
+}
+.cart-wrapper-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: rgba(0, 0, 0, 0.5);
 }
 .cart-container {
 	height: 100vh;
@@ -353,6 +360,7 @@ span.text-red {
 .item-desc .flex {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	width: 350px;
 	color: #324d67;
 }
