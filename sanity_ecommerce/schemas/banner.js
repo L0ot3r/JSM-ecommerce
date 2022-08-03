@@ -12,13 +12,13 @@ export default {
           },
       },
       {
-          name: 'buttonText',
-          title: 'ButtonText',
+          name: 'product',
+          title: 'Product',
           type: 'string',
       },
       {
-          name: 'product',
-          title: 'Product',
+          name: 'buttonText',
+          title: 'ButtonText',
           type: 'string',
       },
       {

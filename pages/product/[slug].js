@@ -10,10 +10,17 @@ import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
-const ProductDetails = ({ products, product }) => {
+const ProductDetails = ({ product, products }) => {
 	const { image, name, details, price } = product;
 	const [index, setIndex] = useState(0);
 	const { decQty, incQty, qty, setQty, onAdd, setShowCart } = useStateContext();
+
+	const handleBuyNow = () => {
+		onAdd(product, qty);
+
+		setShowCart(true)
+	}
+
 
 	return (
 		<div>
@@ -22,7 +29,7 @@ const ProductDetails = ({ products, product }) => {
 					<div className='image-container'>
 						<img
 							src={urlFor(image && image[index])}
-							alt=''
+							alt={name}
 							className='product-detail-image'
 						/>
 					</div>
@@ -60,7 +67,7 @@ const ProductDetails = ({ products, product }) => {
 							<span className='minus' onClick={decQty}>
 								<AiOutlineMinus />
 							</span>
-							<span className='num' onClick={() => {}}>
+							<span className='num'>
 								{qty}
 							</span>
 							<span className='plus' onClick={incQty}>
@@ -75,12 +82,11 @@ const ProductDetails = ({ products, product }) => {
 							onClick={() => {
 								onAdd(product, qty);
 								setQty(1);
-								setShowCart(true)
 							}}
 						>
 							Ajouter au panier
 						</button>
-						<button type='button' className='buy-now' onClick={() => {}}>
+						<button type='button' className='buy-now' onClick={handleBuyNow}>
 							Acheter maintenant
 						</button>
 					</div>
